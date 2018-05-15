@@ -39,7 +39,7 @@ All user names and password for the environment are set to **labuser / Secur1tyR
 **3.** To create the lab ressources copy the code below into Azure Cloud Shell and execute it.
 
 ```powershell
-$script = Invoke-WebRequest https://raw.githubusercontent.com/azureandbeyond/azuresecuritylab/PowerShell/master/deployLab.ps1 -UseBasicParsing
+$script = Invoke-WebRequest https://raw.githubusercontent.com/azureandbeyond/azureseclab/PowerShell/master/deployLab.ps1 -UseBasicParsing
 Invoke-Expression $($script.Content)
 ```
 
