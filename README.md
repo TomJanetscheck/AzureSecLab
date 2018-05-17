@@ -32,14 +32,14 @@ All user names and password for the environment are set to **labuser / Secur1tyR
 
 **1.** Login to [Azure Primary Portal](https://portal.azure.com) with an account that has administrative rights on an active Azure subscription.
 
-**2.** In [Azure Primary Portal](https://portal.azure.com) start an Azure cloud shell session clicking on the "**>_**" symbol in the top right corner of the portal. Make sure the shell is set to PowerShell instead of Bash as shown in the screen shot below.
+**2.** In [Azure Portal](https://portal.azure.com) start an Azure cloud shell session clicking on the "**>_**" symbol in the top right corner of the portal. Make sure the shell is set to PowerShell instead of Bash as shown in the screen shot below.
 
 ![Azure Cloud Shell](https://github.com/azureandbeyond/AzureSecLab/blob/master/pics/AzureCloudShell.png)
 
 **3.** To create the lab ressources copy the code below into Azure Cloud Shell and execute it.
 
 ```powershell
-$script = Invoke-WebRequest https://raw.githubusercontent.com/azureandbeyond/azureseclab/PowerShell/master/deployLab.ps1 -UseBasicParsing
+$script = Invoke-WebRequest https://raw.githubusercontent.com/azureandbeyond/AzureSecLab/master/PowerShell/deployLab.ps1 -UseBasicParsing
 Invoke-Expression $($script.Content)
 ```
 
