@@ -30,17 +30,31 @@ In this one-day workshop you will learn how to securely deploy Azure infrastruct
 ## Initial lab deployment
 All user names and password for the environment are set to **labuser / Secur1tyR0cks**.
 
-**1.** Login to [Azure Primary Portal](https://portal.azure.com) with an account that has administrative rights on an active Azure subscription.
+**1.** Login to [Azure Primary Portal](https://portal.azure.com) with an account that has administrative permissions on an active Azure subscription.
 
-**2.** In [Azure Portal](https://portal.azure.com) start an Azure cloud shell session clicking on the "**>_**" symbol in the top right corner of the portal. Make sure the shell is set to PowerShell instead of Bash as shown in the screen shot below.
+**2.** Start an elevated Microsoft PowerShell session and make sure you have installed the latest Azure PowerShell module. To find out which module version is installed, run the following command in the PowerShell session:
 
-![Azure Cloud Shell](https://github.com/azureandbeyond/AzureSecLab/blob/master/pics/AzureCloudShell.png)
+```powershell
+Get-Module AzureRM -listavailable
+```
 
-**3.** To create the lab ressources copy the code below into Azure Cloud Shell and execute it.
+If you have not installed an AzureRM PowerShell module please run
+
+```powershell
+Install-Module AzureRM
+```
+
+To update a formerly installed version you can run
+
+```powershell
+Update-Module AzureRM
+```
+
+**3.** To create the lab ressources copy the code below into your PowerShell session and execute it.
 
 ```powershell
 $script = Invoke-WebRequest https://raw.githubusercontent.com/azureandbeyond/AzureSecLab/master/PowerShell/deployLab.ps1 -UseBasicParsing
 Invoke-Expression $($script.Content)
 ```
 
-The deployment takes up to 15 minutes. After the deployment has finished you will be informed in Azure Cloud Shell.
+The deployment takes up to 30 minutes. After the deployment has finished you will be informed in the PowerShell windows.

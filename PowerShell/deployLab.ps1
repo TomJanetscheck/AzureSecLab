@@ -1,7 +1,7 @@
+Connect-AzureRmAccount
 $location = 'westeurope'
 $vaultName = "keyvault-" + -join ((97..122) | Get-Random -Count 10 | % {[char]$_})
 $resourceGroupName = (new-azurermresourcegroup -name AzureSaturday -Location $location).ResourceGroupName
-
 $keyVault = New-AzureRmKeyVault `
    -VaultName $vaultName `
    -ResourceGroupName $resourceGroupName `
@@ -13,8 +13,6 @@ $keyVault = New-AzureRmKeyVault `
    -Sku Standard
 Wait-event -Timeout 3
 Write-Host -ForegroundColor yellow "Keyvault $vaultName created..."
-Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -EnabledForDeployment
-Write-Host -ForegroundColor yellow "Access policy set to -enabledForDeployment..."
 $secretValue = ConvertTo-SecureString 'Secur1tyR0cks' -AsPlainText -Force
 $secret = Set-AzureKeyVaultSecret `
       -VaultName $vaultName `
@@ -23,7 +21,7 @@ $secret = Set-AzureKeyVaultSecret `
 Write-Host -ForegroundColor yellow "Keyvault secret set..."
 Wait-event -Timeout 3
 $outputs = (new-azurermresourcegroupdeployment `
-      -Name AzureSecLab-Core `
+      -Name AzSecLab-Core `
       -ResourceGroupName $resourceGroupName `
       -TemplateUri https://azureseclab.blob.core.windows.net/azureseclab/azuredeploy-core.json `
       -VaultName $vaultName `
