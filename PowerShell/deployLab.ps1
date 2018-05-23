@@ -1,4 +1,3 @@
-Connect-AzureRmAccount
 $location = 'westeurope'
 $vaultName = "keyvault-" + -join ((97..122) | Get-Random -Count 10 | % {[char]$_})
 $resourceGroupName = (new-azurermresourcegroup -name AzureSaturday -Location $location).ResourceGroupName
